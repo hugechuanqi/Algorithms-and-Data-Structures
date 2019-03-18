@@ -10,7 +10,7 @@
 
     由于二维数组从左到右，从上到下都是有序依次增大，所以可以考虑，选取右上角或右下角。因为这两个位置有一个特点，都位于两边的数字中间。例如，右上角位置左侧都比其小，该位置下侧都比其大，因此挪动位置具有唯一性。左下角位置亦如此。
 
-- 代码实现：[二维数组的查找](https://github.com/hugechuanqi/Algorithms-and-Data-Structures/blob/master/%E5%89%91%E6%8C%87offer/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E6%9F%A5%E6%89%BE.py)
+- 代码实现：[二维数组的查找](https://github.com/hugechuanqi/Algorithms-and-Data-Structures/blob/master/%E5%89%91%E6%8C%87offer/01.%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E6%9F%A5%E6%89%BE.py)
 
     
 
@@ -30,7 +30,7 @@
 
         （2） 接着从后往前开始替换，第一个指针p1放在原字符串最后一个位置，第二个指针p2放在新字符串最后一个位置，同时向前移动，每当碰到空格的时候，指针p1向前移动1格，而指针p2向前移动3格，直到两个指针指向同一个位置，表明空格替换完毕，剩余字符一一替换即可。 
 
-- 代码实现：[替换空格](https://github.com/hugechuanqi/Algorithms-and-Data-Structures/blob/master/%E5%89%91%E6%8C%87offer/%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC.py)
+- 代码实现：[替换空格](https://github.com/hugechuanqi/Algorithms-and-Data-Structures/blob/master/%E5%89%91%E6%8C%87offer/02.%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC.py)
 
 
 
@@ -64,11 +64,11 @@
 
     在函数ConstructCore中，我们先根据前序遍历的第一个数字创建根结点，然后在中序遍历中找到根结点的位置，这样就能确定左右子树节点的数量。在前序遍历和中序遍历中划分了左、右子树节点的值之后，我们就可以递归地调用函数ConstructCore去分别构建它的左、右子树。
 
-- 代码实现：[重建二叉树](https://github.com/hugechuanqi/Algorithms-and-Data-Structures/blob/master/%E5%89%91%E6%8C%87offer/%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91.py)
+- 代码实现：[重建二叉树](https://github.com/hugechuanqi/Algorithms-and-Data-Structures/blob/master/%E5%89%91%E6%8C%87offer/04.%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91.py)
 
 
 
-## 5、用两个栈实现队列
+## 5、用两个栈实现队列（24ms）
 
 - 题目描述：
 
@@ -93,3 +93,49 @@
     2.  当栈B为空时，我们需要将stackA中的元素逐个弹出至stackB，然后再弹出stackB的栈顶元素。
 
 - 代码实现：[两个栈实现队列](https://github.com/hugechuanqi/Algorithms-and-Data-Structures/blob/master/%E5%89%91%E6%8C%87offer/05.%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97.py)
+
+
+
+## 17、树的子结构（27ms，5836k）
+
+- 题目描述：
+
+    输入两棵二叉树A，B，判断B是不是A的子结构。（ps：我们约定空树不是任意一个树的子结构）
+
+- 思路：
+
+    要查找A中是否存在和树B结构一样的子树，分为以下两步：
+
+        1.  第一步：在树A中找到和树B的根结点的值一样的结点R；
+
+        2.  第二步：判断树A中以R为根结点的子树是否包含和B一样的结构。
+
+    遍历结点下面的子树，直到树B中的所有结点在树A中某个子树中找到。
+
+- 代码实现：
+
+
+
+## 18、二叉树的镜像（38ms）
+
+- 题目描述：
+
+    操作给定的二叉树，将其变换为源二叉树的镜像。
+
+- 思路：
+
+    - 二叉树的镜像：即根结点和每个中间结点的左右孩子结点交换位置得到的一棵二叉树。
+
+    - 求镜像的过程：先前序遍历这棵树的每个结点，如果遍历的结点有子结点，就交换它的两个子结点。当交换完所有非叶结点的左、右子结点之后，就得到了树的镜像。
+
+    -  前序遍历：根节点->左子树->右子树.
+
+- 代码实现：
+
+
+
+**参考**：
+
+1. 《剑指offer》宝典神功
+
+2. 牛客网：https://www.nowcoder.com/ta/coding-interviews

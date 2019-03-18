@@ -20,6 +20,7 @@ class Solution:
                 self.stackB.append(self.stackA.pop())
             return self.stackB.pop()
 
+## 测试用例
 s = ["PSH1","PSH2","PSH3","POP","POP","PSH4","POP","PSH5","POP","POP"]
 a = Solution()
 a.push(s)

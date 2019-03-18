@@ -18,6 +18,7 @@ class Solution:
         result.extend(listNode.val)
         return result[::-1]
 
+## 测试用例
 s = {1,2,3}
 listNode = ListNode(s)
 # for i in range(len(s)):

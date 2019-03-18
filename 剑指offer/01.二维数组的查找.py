@@ -17,6 +17,7 @@ class Solution:
                 return print("找到位置：",(i+1,j+1))
         return False    #代表没找到
         
+## 测试用例
 array = [[1,3,7,9,11],[2,5,8,12,15],[3,6,10,17,21],[4,7,13,19,25],[5,9,18,20,38]]
 target = 13
 a = Solution()

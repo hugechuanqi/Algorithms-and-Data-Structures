@@ -18,6 +18,7 @@ class Solution:
         root.right = self.reConstructBinaryTree(pre[val+1:], tin[val+1:])
         return root
 
+## 测试用例
 pre = [1,2,3,4,5,6,7]
 tin = [3,2,4,1,6,5,7]
 
