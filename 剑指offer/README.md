@@ -132,6 +132,24 @@
 
 - 代码实现：[二叉树的镜像](https://github.com/hugechuanqi/Algorithms-and-Data-Structures/blob/master/%E5%89%91%E6%8C%87offer/18.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%95%9C%E5%83%8F.py)
 
+## 22、从上往下打印二叉树（50ms，5832k）
+
+- 题目描述：
+
+    从上往下打印出二叉树的每个节点，同层节点从左至右打印。
+
+- 思路：
+
+    此题属于广度优先层次遍历，利用一个队列来实现。层次遍历的基本过程是：
+
+        - 从根结点出发（依次加入到队列中），并且从队列中取出一个元素；
+
+        - 访问该元素所指的结点（即取出该结点的值）；
+
+        - 若该元素所指结点的左、右孩子结点非空，则将其左、右孩子的指针顺序入队列。
+
+- 代码实现：[从上往下打印二叉树](https://github.com/hugechuanqi/Algorithms-and-Data-Structures/blob/master/%E5%89%91%E6%8C%87offer/22.%E4%BB%8E%E4%B8%8A%E5%BE%80%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91.py)
+
 ## 24、二叉树中和为某一值的路径（26ms，5728k）
 
 - 题目描述：
@@ -164,7 +182,17 @@
 
 - 代码实现：[二叉树的深度](https://github.com/hugechuanqi/Algorithms-and-Data-Structures/blob/master/%E5%89%91%E6%8C%87offer/38.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6.py)
 
+## 39、平衡二叉树（30ms，5624k）
 
+- 题目描述：
+
+    输入一棵二叉树，判断该二叉树是否是平衡二叉树。
+
+- 思路：
+
+    - 如果某二叉树中任意结点的左、右子树的深度相差不超过1（包括根结点和中间结点），那么它就是一棵平衡二叉树。
+
+- 代码实现：[平衡二叉树](https://github.com/hugechuanqi/Algorithms-and-Data-Structures/blob/master/%E5%89%91%E6%8C%87offer/39.%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91.py)
 
 ## 58、对称的二叉树（26ms，5704k）
 
