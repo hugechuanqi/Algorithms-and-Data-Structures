@@ -20,7 +20,7 @@ def maxHeapfy(A, i, length):
 
         large = i
 
-    if r < length and A[r] > A[large]:
+    if r < length and A[r] > A[i]:
 
         large = r
 
