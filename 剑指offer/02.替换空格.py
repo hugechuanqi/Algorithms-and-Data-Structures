@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 class Solution:
     def replaceSpace(self, s):
         return s.replace(' ', '%20')
