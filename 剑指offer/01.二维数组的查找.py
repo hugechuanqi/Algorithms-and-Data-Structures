@@ -14,7 +14,8 @@ class Solution:
                 i += 1
             else:
                 # return True    #代表找到
-                return print("找到位置：",(i+1,j+1))
+                return (i+1, j+1)
+                # print("找到位置：", (i+1,j+1))    #这种情况会持续打印
         return False    #代表没找到
         
 ## 测试用例
