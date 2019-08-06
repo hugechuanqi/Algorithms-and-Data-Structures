@@ -7,18 +7,31 @@
 
 # 思路：建立一个数组，将正确的字母留到数组中，然后对比之后的元素与该数组中元素的最后几位。如果符合错误条件，则过滤掉，否则添加在数组中。
 
+class Solution:
+    def autoCheck(self, s):
+        res = []
+        for elem in s:
+            if len(res)>=2:
+                if elem == res[-1] and elem == res[-2]:
+                    continue
+            if len(res)>=3:
+                if elem == res[-1] and res[-2] == res[-3]:
+                    continue
+            res.append(elem)
+        return res
+
+a = Solution()
 n = int(input())
 for i in range(n):
     s = input()
-    res = []
-    for elem in s:
-        if len(res)>=2:
-            if elem == res[-1] and elem == res[-2]:
-                continue
-        if len(res)>=3:
-            if elem == res[-1] and res[-2] == res[-3]:
-                continue
-        res.append(elem)
+    res = a.autoCheck(s)
     print("".join(res))
 
-        
+## 测试用例：
+# 输入：
+# 2
+# helloo
+# woooooow
+# 输出：
+# hello
+# woow
