@@ -1,0 +1,34 @@
+def characterSet_reduction(a):
+    whole_string, haved_string = a.split("@")
+    whole_string_list = whole_string.split(",")
+    haved_string_list = haved_string.split(",")
+
+    if len(haved_string)>0:
+        whole_dict = {}
+        for value in whole_string_list:
+            a = value.split(":")
+            whole_dict[a[0]] = a[1]
+
+        haved_dict = {}
+        for value2 in haved_string_list:
+            b = value2.split(":")
+            haved_dict[b[0]] = b[1]
+
+        whole_dict_new = {}
+        for name,number in whole_dict.items():
+            if name in haved_dict:
+                if int(number) - int(haved_dict[name]) > 0:
+                    reduction = str((int(number) - int(haved_dict[name])))
+                    whole_dict_new[name] = reduction
+            else:
+                whole_dict_new[name] = number
+        res = []
+        for name,number in whole_dict_new.items():
+            res.append(name+":"+number)
+        return ",".join(res)
+    else:
+        return a
+
+a = input()
+res = characterSet_reduction(a)
+print(res)
