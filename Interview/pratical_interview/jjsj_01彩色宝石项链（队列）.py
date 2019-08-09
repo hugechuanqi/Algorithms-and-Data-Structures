@@ -1,3 +1,6 @@
+## 题目：彩色宝石项链
+## 类型：队列
+
 while True:
     try:
         s = input()
@@ -14,3 +17,6 @@ while True:
         print(l - min_ -1)
     except:
         break
+
+
+
