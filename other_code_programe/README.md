@@ -29,3 +29,6 @@
 - 题目描述：
 - 思路：
 - 代码实现：
+
+
+$$\min_{x} \sum_{i=0}^{n - 1} x_i \ \text{subject to} \sum_{i=0}^{n - 1} x_i*c_i = S$$
