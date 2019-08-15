@@ -25,8 +25,6 @@ class Solution:
 
 s = {10,6,14,4,8,12,16}
 
-
-
 # class Solution:
 #     # 返回从上到下每个节点值列表，例：[1,2,3]
 #     def PrintFromTopToBottom(self, root):

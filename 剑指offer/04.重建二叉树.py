@@ -23,4 +23,17 @@ pre = [1,2,3,4,5,6,7]
 tin = [3,2,4,1,6,5,7]
 
 a = Solution()
-print(a.reConstructBinaryTree(pre,tin))
+Tree = a.reConstructBinaryTree(pre, tin)
+while(Tree):
+    print(Tree.val)
+    Tree = Tree.left
+
+# print(a.reConstructBinaryTree(pre,tin))
+
+
+## 测试用例：
+# 输入：
+# pre = [1,2,3,4,5,6,7,8]
+# tin = [4,7,2,1,5,3,8,6]
+# 输出：
+# 返回重建的二叉树

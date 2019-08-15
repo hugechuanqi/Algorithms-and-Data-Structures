@@ -8,7 +8,6 @@ class Solution:
         # write code here
         return self.stackA.append(node)
 
-
     def pop(self):  #出栈
         # return xx
         if self.stackB:     #如果B栈不为空
