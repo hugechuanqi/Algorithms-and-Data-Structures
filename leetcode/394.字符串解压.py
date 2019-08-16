@@ -1,4 +1,22 @@
+## 题目：字符串解压
+## 类型：栈，深度优先搜索
+
+## 题目描述：给定一个经过编码的字符串，返回它解码后的字符串。
+# 编码规则为: k[encoded_string]，表示其中方括号内部的 encoded_string 正好重复 k 次。注意 k 保证为正整数。
+# 你可以认为输入字符串总是有效的；输入字符串中没有额外的空格，且输入的方括号总是符合格式要求的。
+# 此外，你可以认为原始数据不包含数字，所有的数字只表示重复的次数 k ，例如不会出现像 3a 或 2[4] 的输入。
+
+
+## 输入：s = "3[a]2[bc]" 
+## 输出：返回 "aaabcbc"
+## 输入：s = "3[a2[c]]"
+## 输出：返回 "accaccacc"
+
+## 核心：
+## 思路：利用双栈实现，第一个栈A存储数字，另一个栈B存储两个'['之间的字符。首先用临时变量res表示'['之前的字符串，用num存储'['之前的数值，每当遇到'['时，就把res存储在栈B，将num存储至栈A，并将res赋值为''，将num赋值为''，并继续遍历改变res和num的值，每当遇到']'时，就弹出栈B和栈A的栈顶元素，将字符串不断叠加到临时变量res中，依次循环操作，直到遍历结束。
+
 class Solution:
+    ## 暂时不作这样的考虑
     def decodeString(self, s):
         """
         :type s: str
@@ -32,7 +50,7 @@ class Solution:
     def decodeString2(self, s):
         nums = []
         strs = []
-        num ='0'
+        num =''
         res = ''
         for elem in s:
             if '0' <= elem <= '9':
@@ -41,7 +59,7 @@ class Solution:
                 res = res + elem
             elif elem == "[":
                 nums.append(num)
-                num = '0'
+                num = ''
                 strs.append(res)
                 res = ''
             elif elem == "]":
