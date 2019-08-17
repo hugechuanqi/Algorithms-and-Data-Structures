@@ -20,25 +20,30 @@ class Solution:
         self.MOD = 99997867
 
     def calculate_solution_number(self, N, D, array):
+        """ 计算不同埋伏方案数量，通过取出数组中元素满足设定的条件
+        """
         count = 0
         for i in range(N):
-            a = array[i]
+            a = array[i]    # 埋伏点1
             for j in range(i+1,N):
                 if j==i:
                     continue
-                b = array[j]
+                b = array[j]    # 埋伏点2
                 if abs(a-b)>D:
                     break
                 for m in range(i+j, N):
                     if m==i or m==j:
                         continue
-                    c = array[m]
+                    c = array[m]    # 埋伏点3
                     if abs(b-c)>D or abs(a-c)>D:
                         break
                     count +=1
         return count
     
+    ## 标准程序
     def calculate_solution_number2(self, N, D, array):
+        """ 动态规划，设定两个指针在最大间隔处，剩余一个指针使用排列组合
+        """
         number_list = [0]*N
         j  = 0
         for i in range(2, N):
@@ -49,12 +54,13 @@ class Solution:
             number_list[i] = number_list[i]%self.MOD
         return sum(number_list)%self.MOD
 
-N, D = list(map(float, input().split()))
-N = int(N)
-array = list(map(float, input().split()))
-a = Solution()
-count2 = a.calculate_solution_number(N, D, array)
-print(count2)
+if __name__ == "__main__":
+    N, D = list(map(float, input().split()))
+    N = int(N)
+    array = list(map(float, input().split()))
+    a = Solution()
+    count2 = a.calculate_solution_number2(N, D, array)
+    print(count2)
 
 ## 测试用例：
 # 输入：

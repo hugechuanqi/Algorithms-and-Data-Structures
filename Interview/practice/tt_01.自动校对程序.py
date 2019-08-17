@@ -20,12 +20,13 @@ class Solution:
             res.append(elem)
         return res
 
-a = Solution()
-n = int(input())
-for i in range(n):
-    s = input()
-    res = a.autoCheck(s)
-    print("".join(res))
+if __name__ == "__main__":
+    a = Solution()
+    n = int(input())
+    for i in range(n):
+        s = input()
+        res = a.autoCheck(s)
+        print("".join(res))
 
 ## 测试用例：
 # 输入：

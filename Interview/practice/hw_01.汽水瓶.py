@@ -16,7 +16,7 @@ class Solution:
         self.n = nn
         self.res = res
 
-    ## 递归实现
+    ## 递归实现——暂时有点问题
     def can_drink(self):
         print("初始值:",self.n)
         if self.n==1:
@@ -30,7 +30,7 @@ class Solution:
             # print(res)
         return self.res
 
-    ## 能够喝的瓶子数，包括原始的瓶子数（非递归）
+    ## 能够喝的瓶子数，包括原始的瓶子数（非递归）——本人最原始方法
     def can_drink2(self, n):
         # 当剩下的瓶子树小于3时，就不允许更换
         if n<3:
@@ -64,14 +64,14 @@ class Solution:
 ## 官方标准的多个case的输入输出
 import sys
 a = Solution(20,0)
-print(a.can_drink())
 for line in sys.stdin:
     a_in = line.split()
     water_number = int(a_in[0])
     if water_number == 0:
         break
-    res = a.can_drink() - water_number
-    # res = a.can_drink3(water_number)
+    # res = a.can_drink() - water_number
+    # res = a.can_drink2(water_number) - water_number
+    res = a.can_drink3(water_number)
     print(res)
 
 # water_number = int(input())
