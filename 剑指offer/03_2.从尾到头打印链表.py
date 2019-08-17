@@ -4,8 +4,8 @@ class ListNode:
         self.val = x
         self.next = None
     
-    # 面向对象添加一个节点值
-    # def add_node(self, Value):
+    ## 面向对象添加一个节点值
+    # def build(self, Value):
     #     return self.val.add(Value)
 
 class Solution:
@@ -23,18 +23,21 @@ class Solution:
         return result
 
 ## 测试用例
-s = {1,2,3}
-listNode = ListNode(list(s)[0])
-p = listNode
-i = 0
-for value in s:
-    i = i + 1
-    if i ==1:
-        continue
-    else:
-        p.next = ListNode(value)
-        p = p.next
+if __name__ == "__main__":
+    s = {1,2,3}
+    ## --- 此过程为建立链表的过程
+    listNode = ListNode(list(s)[0])
+    p = listNode
+    i = 0
+    for value in s:
+        i = i + 1
+        if i ==1:
+            continue
+        else:
+            p.next = ListNode(value)
+            p = p.next
+    ## ---
 
-a = Solution()
-print(a.printListFromTailToHead(listNode))
+    a = Solution()
+    print(a.printListFromTailToHead(listNode))
 

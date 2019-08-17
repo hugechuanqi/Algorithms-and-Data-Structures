@@ -1,4 +1,6 @@
 # coding: utf-8
+## 扩展：二分法只能查找排序好的数组，那如何利用非遍历的方法查找未排序的数组呢？假设数组中存储的是字符串，又该如何？
+
 class Solution:
     # 递归版
     def binary_lookup(self, list_, key):

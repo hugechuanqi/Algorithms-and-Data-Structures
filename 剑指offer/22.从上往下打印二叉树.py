@@ -7,7 +7,8 @@
 class Solution:
     # 返回从上到下每个节点值列表，例：[1,2,3]
     def PrintFromTopToBottom(self, root):   #利用队列的先入先出，将左右孩子结点顺序弹出
-        # write code here
+        """ 从上往下打印二叉树
+        """
         if not root:
             return []
         queue = []
@@ -23,7 +24,9 @@ class Solution:
                 queue.append(node.right)
         return result
 
-s = {10,6,14,4,8,12,16}
+if __name__ == "__main__":
+    """如何建立一颗二叉树：前序遍历+中序遍历+后序遍历+层序遍历"""
+    s = {10,6,14,4,8,12,16}
 
 # class Solution:
 #     # 返回从上到下每个节点值列表，例：[1,2,3]
