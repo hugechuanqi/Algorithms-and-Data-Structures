@@ -23,17 +23,38 @@ class Solution:
                 if i >= c:
                     cost = min(cost, res[i-c]+1)
             res[i] = cost
-
+        temp = set()
+        for elem in res:
+            if elem != float('inf'):
+                temp.add(elem)
+        print(len(temp))
         if res[amount] == float('inf'):
             return -1
         else:
             return res[amount]
 
+    def coinChange2(self, coins, amount):
+        res = [0 for _ in range(amount+1)]  #res相当于最少硬币数量函数f(n)，总共定义了amount个
+
+        for i in range(1, amount+1):
+            cost = float('inf')
+            for c in coins:
+                if i >= c:
+                    cost = min(cost, res[i-c]+1)
+            res[i] = cost
+        temp = set()
+        for elem in res:
+            if elem != float('inf'):
+                temp.add(elem)
+        return len(temp)
+
 if __name__ == "__main__":
-    coins = [1, 2, 5]   #硬币数量不受限
-    amout = 11
+    # coins = [2, 3, 5]   #硬币数量不受限
+    # amout = 10
+    amount = int(input())
+    coins = list(map(int, input().split()))
     a = Solution()
-    minNumber = a.coinChange(coins, amout)
+    minNumber = a.coinChange2(coins, amout)
     print(minNumber)
 
 ## 测试用例：
