@@ -2,7 +2,7 @@
 ## 扩展：二分法只能查找排序好的数组，那如何利用非遍历的方法查找未排序的数组呢？假设数组中存储的是字符串，又该如何？
 
 class Solution:
-    # 递归版
+    # 递归版（如果找到，则直接返回list_[mid]）
     def binary_lookup(self, list_, key):
         n = len(list_)
         if n<1:
@@ -15,12 +15,12 @@ class Solution:
         else:
             return True
 
-    # 非递归版
+    # 非递归版（如果找到，则直接返回mid，mid即位置）
     def binary_lookup(self, list_, key):
         n = len(list_)
         low = 0
         high = n-1
-        while(low<high):
+        while(low<high):    # 正好找到，因此是low<high，如果确定在某个区间，则是low+1<high，因为基本上找不到low=high
             mid = (low+high)//2
             if list_[mid] < key:
                 low = mid

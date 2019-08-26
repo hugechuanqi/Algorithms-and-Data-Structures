@@ -21,9 +21,15 @@
     假设f(n)代表要凑齐金额为n所要用的最少硬币数量，那么有：f(n) = min(f(n-c1), f(n-c2),...,f(n-cn)) + 1，其中c1,c2,...,cn为硬币的所有面额。
 - 代码实现：[322零钱兑换](https://github.com/hugechuanqi/Algorithms-and-Data-Structures/blob/master/leetcode/322.%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2%EF%BC%88%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%EF%BC%89.py)
 
+## 377、组合总和IV（动态规划）
+- 题目描述：
+- 思路：
+- 代码实现：
+
 ## 394、字符串解压（栈、深度优先搜索）
 - 题目描述：
     给定一个经过编码的字符串，返回它解码后的字符串。编码规则为: k[encoded_string]，表示其中方括号内部的 encoded_string 正好重复 k 次。注意 k 保证为正整数。
 - 思路：
     利用双栈实现，第一个栈A存储数字，另一个栈B存储两个`'['`之间的字符。首先用临时变量res表示`'['`之前的字符串，用num存储`'['`之前的数值，每当遇到`'['`时，就把res存储在栈B，将num存储至栈A，并将res赋值为''，将num赋值为''，并继续遍历改变res和num的值，每当遇到']'时，就弹出栈B和栈A的栈顶元素，将字符串不断叠加到临时变量res中，依次循环操作，直到遍历结束。
 - 代码实现：[394字符串解压](https://github.com/hugechuanqi/Algorithms-and-Data-Structures/blob/master/leetcode/394.%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%A7%A3%E5%8E%8B.py)
+

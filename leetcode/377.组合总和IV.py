@@ -1,3 +1,12 @@
+## 题目：组合总和IV
+## 类型：数组，动态规划
+## 题目应用：
+
+## 题目描述：
+
+## 思路：
+
+
 class Solution:
     def combinationSum4(self, nums, target):
         

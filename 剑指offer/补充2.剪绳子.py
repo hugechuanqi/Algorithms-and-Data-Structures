@@ -36,7 +36,7 @@ class Solution:
             return 2
 
         timeOf3 = length//3
-        if length - 3*timeOf3 == 1:
+        if length - 3*timeOf3 == 1:     # 即最后剪成的绳子是4=3+1，此时剪成4=2*2>3*1更好。
             timeOf3 -= 1
         timeOf2 = (length - 3*timeOf3)//2
 

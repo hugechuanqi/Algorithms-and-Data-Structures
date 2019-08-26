@@ -55,11 +55,13 @@ class Solution:
             max_r = max(max_r, tmp)
         return max(max_right, max_left, max_l+max_r)
         
-array = eval(input())
-print(array[0])
-a  = Solution()
-maxSum = a.maxSubArray3(array)
-print("最大子序和为：", maxSum)
+if __name__ == "__main__":
+    # array = eval(input())
+    array = [-2,1,-3,4,-1,2,1,-5,4]
+    print(array[0])
+    a  = Solution()
+    maxSum = a.maxSubArray3(array)
+    print("最大子序和为：", maxSum)
 
 ## 测试用例：
 # 输入：[-2,1,-3,4,-1,2,1,-5,4]

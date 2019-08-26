@@ -1,5 +1,7 @@
 class Solution:
     def partition(self, Arr,low,high):
+        """ 另一种排序方案
+        """
         hp = Arr[high]  #首先以hp为枢轴
         i = low - 1
         for j in range(low,high):
@@ -10,12 +12,14 @@ class Solution:
         return i+1  #返回枢轴值hp所在的位置
 
     def partition2(self, Arr, low, high):
+        """ 正常的快排步骤
+        """
         hp = Arr[high]
         while(low<high):
-            while(low<high and Arr[low]<=hp):
+            while(low<high and Arr[low]<=hp):   # 从左往右找一个比hp值大的位置，方便后续进行交换
                 low += 1
             (Arr[low],   Arr[high]) = (Arr[high], Arr[low])
-            while(low<high and Arr[high]>=hp):
+            while(low<high and Arr[high]>=hp):  # 从右往左找一个比hp值小的位置，进行交换
                 high -= 1
             (Arr[low], Arr[high]) = (Arr[high], Arr[low])
         return high
@@ -27,9 +31,9 @@ class Solution:
             self.QuickSort(Arr,pivot+1,high)
         return Arr
 
-
-s = [5, 0, 1, 3, 6, 2, 4, 9, 12, 11, 18, 20, 7, 8, 19, 13, 14, 17, 16, 10]
-a = Solution()
-print("快速排序前：", s)
-a.QuickSort(s,0,len(s)-1)
-print("快速排序后:", s)
+if __name__ == "__main__":
+    s = [5, 0, 1, 3, 6, 2, 4, 9, 12, 11, 18, 20, 7, 8, 19, 13, 14, 17, 16, 10]
+    a = Solution()
+    print("快速排序前：", s)
+    a.QuickSort(s,0,len(s)-1)
+    print("快速排序后:", s)

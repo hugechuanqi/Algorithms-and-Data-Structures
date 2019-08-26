@@ -12,6 +12,8 @@
 # 核心：取出花费不同硬币时剩余的最小硬币数，因此需要将总金额减少之后的每个最小硬币数也计算出来。
 # 思路：假设f(n)代表要凑齐金额为n所要用的最少硬币数量，那么有：f(n) = min(f(n-c1), f(n-c2),...,f(n-cn)) + 1，其中c1,c2,...,cn为硬币的所有面额。
 
+## 还是不太明白？？？？？？？？？
+
 class Solution:
     # 动态规划：复杂度为O(coins*amount)
     def coinChange(self, coins, amount) -> int:
@@ -51,14 +53,14 @@ class Solution:
 if __name__ == "__main__":
     # coins = [2, 3, 5]   #硬币数量不受限
     # amout = 10
-    amount = int(input())
     coins = list(map(int, input().split()))
+    amount = int(input())
     a = Solution()
-    minNumber = a.coinChange2(coins, amout)
+    minNumber = a.coinChange(coins, amount)
     print(minNumber)
 
 ## 测试用例：
 # 输入：
 # coins = [1, 2, 5], amout = 11
 # 输出：
-# 11 = 5 + 5 + 1
+# 3
