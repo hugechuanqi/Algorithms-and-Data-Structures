@@ -30,8 +30,19 @@ class Solution:
             
         return max(maxSumList)
 
-    ## 暴力破解法
     def maxSubArray(self, nums) -> int:
+        """ 暴力求解法
+        """
+        tmp = nums[0]   # 假设最大子序和从第一个开始
+        max_  = tmp
+        for i in range(1, len(nums)):
+            if tmp+nums[i] > nums[i]:       # 如果当前序列加上次时的元素的值大于tmp的值，说明最大序列和可能出现在后续序列中，记录此时的最大值
+                max_ = max(max_, tmp+nums[i])
+                tmp = tmp + nums[i]
+            else:       # 如果tmp(当前和)小于下一个元素时，当前最长序列到此为止。以该元素为起点继续找最大子序列，并记录此时的最大值
+                max_ = max(max_, tmp, tmp+nums[i], nums[i])
+                tmp = nums[i]
+
         return max_
 
     ## 分治法

@@ -1,3 +1,10 @@
+## 题目：表面积
+## 类型：三视图
+
+## 题目描述：
+## 思路：
+
+
 import numpy as np
 def get_num(nums):
     a1, a2, a3 = 0, 0, 0

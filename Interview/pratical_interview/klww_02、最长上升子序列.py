@@ -1,3 +1,10 @@
+## 题目：最长上升子序列
+## 类型：动态规划
+
+## 题目描述：给定一个无序的整数数组，找到其中最长上升子序列的长度。
+## 思路：
+
+
 ## 备注：数组是乱序的
 def getMaxSubLength(array, N):
     res = [0]*N
@@ -58,7 +65,7 @@ class Solution(object):
             
     
     def find(self, nums, dp):
-        max_element = -1 * 2 << 31
+        max_element = -1 * 2 << 31  # 想到于取无穷大
         
         for i in range(len(nums) - 2, -1, -1):
             if nums[i] < nums[-1]:

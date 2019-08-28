@@ -1,3 +1,9 @@
+## 题目：KB的数学公司
+## 类型：数学公式推导
+
+## 题目描述：
+## 思路：
+
 #!/bin/python
 # -*- coding: utf8 -*-
 import sys

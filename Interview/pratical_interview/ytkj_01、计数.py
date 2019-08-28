@@ -1,3 +1,8 @@
+## 题目：计数
+## 类型：
+
+## 题目描述：
+## 思路：
 
 def CountNumber(n_num, left, right):
         if left > right:

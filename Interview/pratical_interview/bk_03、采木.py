@@ -1,4 +1,9 @@
+## 题目：采木
 ## 类型：贪心算法
+
+## 题目描述：
+## 思路：
+
 ## 题目做出来了，可惜已经提交了
 class Solution:
     def leastTime(self, strs, flag):

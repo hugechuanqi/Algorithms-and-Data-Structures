@@ -1,3 +1,9 @@
+## 题目：小Q修栏栅
+## 类型：动态规划
+
+## 题目描述：获取最短子序列
+## 思路：
+
 class Solution:
     ## 动态规划
     def minSubArray(self, array, k):

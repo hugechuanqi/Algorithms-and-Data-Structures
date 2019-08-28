@@ -15,8 +15,28 @@
 ## 还是不太明白？？？？？？？？？
 
 class Solution:
-    # 动态规划：复杂度为O(coins*amount)
     def coinChange(self, coins, amount) -> int:
+        """ 暴力搜索法
+        """
+        if (len(coins)==0 or amount<0):
+            return
+        return self.process(coins, 0, amount)
+    def process(self, Arr, index, aim):
+        res = 0
+        if index==len(Arr):
+            if aim==0:      # 钱正好够
+                return 1
+            else:                 # 钱不够了
+                return 0
+        else:
+            for i in range(len(Arr)):
+                res += self.process(Arr, index+1, aim-Arr[i]*i)
+                print(aim, res)
+            return res
+
+    def coinChange2(self, coins, amount) -> int:
+        """ 动态规划法
+        """
         res = [0 for _ in range(amount+1)]  #res相当于最少硬币数量函数f(n)，总共定义了amount个
 
         for i in range(1, amount+1):
@@ -25,6 +45,7 @@ class Solution:
                 if i >= c:
                     cost = min(cost, res[i-c]+1)
             res[i] = cost
+
         temp = set()
         for elem in res:
             if elem != float('inf'):
@@ -35,32 +56,26 @@ class Solution:
         else:
             return res[amount]
 
-    def coinChange2(self, coins, amount):
-        res = [0 for _ in range(amount+1)]  #res相当于最少硬币数量函数f(n)，总共定义了amount个
-
-        for i in range(1, amount+1):
-            cost = float('inf')
-            for c in coins:
-                if i >= c:
-                    cost = min(cost, res[i-c]+1)
-            res[i] = cost
-        temp = set()
-        for elem in res:
-            if elem != float('inf'):
-                temp.add(elem)
-        return len(temp)
+    def coinChange3(self, coins, amount) -> int:
+        """ 记忆搜索法
+        """
+        return
 
 if __name__ == "__main__":
-    # coins = [2, 3, 5]   #硬币数量不受限
-    # amout = 10
-    coins = list(map(int, input().split()))
-    amount = int(input())
+    coins = [2, 3, 5]   #硬币数量不受限
+    amount = 10
+    # coins = list(map(int, input().split()))
+    # amount = int(input())
     a = Solution()
     minNumber = a.coinChange(coins, amount)
     print(minNumber)
 
 ## 测试用例：
 # 输入：
+# coins = [1, 2, 5], amout = 11
+# 输出：
+# 3
+# 输入：[2,3,5]
 # coins = [1, 2, 5], amout = 11
 # 输出：
 # 3
