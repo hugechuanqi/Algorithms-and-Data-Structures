@@ -1,5 +1,10 @@
 ## 题目: 全量字符集和已占用字符集
 ## 类型:字符串,字典
+## 应用领域：
+
+## 题目描述：给出一个字符串，如A:3,b:5,c:2@a:1,b:2，@前面的称为全量字符集，后面的称为已占用字符集，我们需要获取全量字符集减去已占用字符集之后的字符集。如果@后面不存在已占用字符集，则@也需要保留
+## 核心：
+## 思路：首先将字符串拆分为两份字符集，然后建立全量字符集和已占用字符集中每个字符的哈希映射，
 
 ## 其他知识点: python中对字符串的大小写字母进行转换的方法未swapcase(), 语法: str.swapcase(), 例如, "a".swapcase(), 将输出"A";
 # lower能将大写字符转变为小写, 例如:"A".lower(),输出未"a";  upper()能将小写字符转变为大写,例如: "b".upper(),输出为"B""
@@ -35,9 +40,10 @@ def characterSet_reduction(a):
     else:
         return a
 
-a = input()
-res = characterSet_reduction(a)
-print(res)
+if __name__ == "__main__":
+    a = input()
+    res = characterSet_reduction(a)
+    print(res)
 
 ## 测试用例:
 # 输入: A:3,b:5,c:2@a:1,b:2

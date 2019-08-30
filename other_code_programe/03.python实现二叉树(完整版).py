@@ -4,25 +4,8 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
-    # #setter and getter
-    # def get_val(self):
-    #     return self.val
-    # def set_val(self,val):
-    #     self.val=val
-    # def get_left(self):
-    #     return self.left
-    # def set_left(self,left):
-    #     self.left=left
-    # def get_right(self):
-    #     return self.right
-    # def set_right(self,right):
-    #     self.right=right
 
 class Tree:
-    def __init__(self, List):
-        List = sorted(List)
-        self.root=self.build_tree(List)
-
     ## 建立一棵平衡二叉树：选定一个中间值，左子树的值比根结点值小，右子树的值比根结点大。
     def build_tree(self, List):
         l=0
@@ -76,9 +59,13 @@ class Tree:
                 if node.right:
                     queue.append(node.right)
 
+
+if __name__ == "__main__":
 list1 = [55555,333,1,22,4444,666666]
 #list1=[1,-1,3,4,5]
-tree = Tree(list1)
+a = Tree()      # 完成平衡二叉树的构建
+tree = a.build_tree
+
 print("前序遍历：")
 tree.preorder(tree.root)
 print("中序遍历：")
