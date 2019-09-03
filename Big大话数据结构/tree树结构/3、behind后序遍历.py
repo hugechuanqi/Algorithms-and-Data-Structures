@@ -2,14 +2,21 @@
 # 参考：https://www.cnblogs.com/liutongqing/p/7698429.html
 # 参考：https://www.cnblogs.com/llhthinker/p/4747962.html
 
-## 题目描述：二叉树的构建和中序遍历的递归/非递归实现。
+## 题目描述：二叉树的构建和后序遍历的递归/非递归实现。
 ## 测试用例：
 # 输入：
 #             A
 #     B           C
 # D     E     F     #
 # 输出：
-# ABDECF#
+# DEBF#CA
+
+## 方法二：使用一个一个栈实现，具体过程如下：
+# 1、申请一个栈，记为stack，将头结点压入栈stack中，同时设置两个变量h和c，在整个流程中，h代表最近一次弹出并打印的结点，c代表当前stack的栈顶结点，初始时令h为头结点，c为null。
+# 2、每次令c等于当前stack的栈顶结点，但是不从stack中弹出结点，此时分一下三种情况：
+# （1）如果c的左孩子结点为不为空，并且h不等于c的左孩子，也不等于c的右孩子，则把c的左孩子压入stack中。
+# （2）如果情况1不成立，并且c的右孩子不为空，并且h不等于c的右孩子，则把c的右孩子压入stack中。
+# （3）如果情况1和情况2都不成立，那么从stack中弹出c并打印，然后令h等于c。
 
 class TreeNode(object):
     def __init__(self, data=None, left=None, right=None):
@@ -102,5 +109,5 @@ if __name__ == "__main__":
     pRoot = BT.build_tree(Arr)
     print("二叉树为：", BT.PrintFromTopToBottom(pRoot), "——对应层序遍历")
 
-    result = BT.postOrder2(pRoot)
+    result = BT.postOrder3(pRoot)
     print("后序遍历：", result)

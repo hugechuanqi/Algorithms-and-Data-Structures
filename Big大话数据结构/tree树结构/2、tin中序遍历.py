@@ -9,7 +9,7 @@
 #     B           C
 # D     E     F     #
 # 输出：
-# ABDECF#
+# DBEAFC#
 
 class TreeNode(object):
     def __init__(self, data=None, left=None, right=None):

@@ -1,23 +1,8 @@
-def transform(length, s):
-    res = []
-    for elem in s:
-        if elem == 'A':
-            res.append('12')
-            res.append('34')
-            length += 1
-        elif elem == 'B':
-            res.append('AB')
-            res.append('CD')
-            length += 1
-        else:
-            res.append(elem)
-    length = hex(length)[2:]
-    res.insert(0, str(length))
-    return ' '.join(res)
-
 if __name__ == "__main__":
-    arr = list(map(str, input().split()))
-    length = int('0x'+arr[0], 16)
-    s = arr[1:]
-    res = transform(length, s)
-    print(res)
+    str1 = input()
+    str2 = input()
+    str1 = str1[::-1]
+    if str1==str2:
+        print(True)
+    else:
+        print(False)

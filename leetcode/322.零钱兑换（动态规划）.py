@@ -9,6 +9,8 @@
 ## 输出：3
 ## 解释：11 = 5 + 5 + 1
 
+
+## 思路1（暴力法）：优化目标$min \sum_{i=0}^{n-1} x_{i}}$，其中约束条件为$\sum_{i=0}^{n-1} x_{i} * c_{i} = S$，容易看到$x_{i} = [0, \frac{S}{c_{i}}]$，因此暴力法为枚举所有硬币频率子集[x_{0},...,x_{n-1}}]，然后再满足约束条件的，计算其和并返回其中的最小值。
 # 核心：取出花费不同硬币时剩余的最小硬币数，因此需要将总金额减少之后的每个最小硬币数也计算出来。
 # 思路：假设f(n)代表要凑齐金额为n所要用的最少硬币数量，那么有：f(n) = min(f(n-c1), f(n-c2),...,f(n-cn)) + 1，其中c1,c2,...,cn为硬币的所有面额。
 
@@ -21,6 +23,15 @@ class Solution:
         if (len(coins)==0 or amount<0):
             return
         return self.process(coins, 0, amount)
+    def process(self, Arr, index, amount):
+        if amount == 0:
+            return 0
+        if index<len(Arr) and amount>0:
+            maxVal = amount//coins[index]    # 每个硬币所对应的最大数量
+            minCost = float('inf')
+            for x in range(ma)
+
+
     def process(self, Arr, index, aim):
         res = 0
         if index==len(Arr):
@@ -30,8 +41,9 @@ class Solution:
                 return 0
         else:
             for i in range(len(Arr)):
+                print(Arr[i], i, index+1)
                 res += self.process(Arr, index+1, aim-Arr[i]*i)
-                print(aim, res)
+                # print(aim, res)
             return res
 
     def coinChange2(self, coins, amount) -> int:
@@ -62,8 +74,8 @@ class Solution:
         return
 
 if __name__ == "__main__":
-    coins = [2, 3, 5]   #硬币数量不受限
-    amount = 10
+    coins = [1, 2, 5]   #硬币数量不受限
+    amount = 11
     # coins = list(map(int, input().split()))
     # amount = int(input())
     a = Solution()
