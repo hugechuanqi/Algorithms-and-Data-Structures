@@ -51,7 +51,7 @@ class Solution:
         """
         res = [0 for _ in range(amount+1)]  #res相当于最少硬币数量函数f(n)，总共定义了amount个
 
-        for i in range(1, amount+1):
+        for i in range(1, amount+1):        # i表示的钱值
             cost = float('inf')
             for c in coins:
                 if i >= c:

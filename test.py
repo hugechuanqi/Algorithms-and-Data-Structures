@@ -12,3 +12,10 @@ if __name__ == "__main__":
     k = int(input())
     res = getNewArr(xs, k)
     print(' '.join(res))
+
+## 测试用例：
+# 输入：
+# 1 2 3 4 5 6 7
+# 3
+# 输出：
+# 2.00 3.00 4.00 5.00 6.00

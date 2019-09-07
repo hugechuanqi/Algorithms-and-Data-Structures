@@ -8,3 +8,21 @@
 ## 核心：
 ## 思路：
 
+
+# -*- coding:utf-8 -*-
+class getLargest(str):
+    def __lt__(x, y):
+        return x+y > y+x
+        
+class Solution:
+    def largest(self, Arr):
+        largest_num = ''.join(sorted(map(str, Arr), key=getLargest))
+        return '0' if largest_num[0] == '0' else largest_num
+
+if __name__ == "__main__":
+    N = int(input())
+    Arr = list(map(int, input().split()))
+    a = Solution()
+    res = a.largest(Arr)
+    print(res)
+
