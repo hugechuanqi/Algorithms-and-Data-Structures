@@ -60,6 +60,22 @@ class BinaryTree(object):
                 queue.append(node.right)
         return result
 
+    def Mirror(self, root):
+        """ 构造二叉树镜像
+        """
+        if root == None:
+            return root
+        if root.left==None and root.right==None:
+            return root
+        (root.left, root.right) = (root.right, root.left)   # 不断交换二叉树的子树
+
+        if root.left:
+            self.Mirror(root.left)
+        if root.right:
+            self.Mirror(root.right)
+            
+        return root
+
 class Solution:
     """ 判断一棵二叉树是否为对称的二叉树
     """
@@ -111,6 +127,8 @@ if __name__ == "__main__":
     BT = BinaryTree()
     pRoot = BT.build_tree(Arr)
     print("层序遍历为：", BT.PrintFromTopToBottom(pRoot))      # 层序遍历打印一边二叉树
+    pRoot_Mirror = BT.Mirror(pRoot)
+    print("二叉树镜像层序遍历为：", BT.PrintFromTopToBottom(pRoot_Mirror))      # 层序遍历打印一边二叉树
 
     a = Solution()
     print(a.isSymmetrical2(pRoot))

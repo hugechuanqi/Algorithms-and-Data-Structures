@@ -4,15 +4,38 @@ class ListNode:
         self.val = x
         self.next = None
 
+class LinkList:
+    def buildList(self, Arr):
+        """ 建立链表
+        """
+        head = ListNode(Arr[0])
+        p = head
+        for i in range(1, len(Arr)):
+            p.next = ListNode(Arr[i])
+            p = p.next
+        p.next = None
+        return head
+
+    def printLinkList(self, head):
+        """ 从头到尾打印链表
+        """
+        p = head
+        result = []
+        while(p):
+            result.append(p.val)
+            p = p.next
+        return result
+
 class Solution:
-    # 返回ListNode
+   """  翻转链表"""
     def ReverseList(self, pHead):
-        # write code here
+        """ 三指针法
+        """
         if not pHead:
             return None
 
         pPre = None
-        pNode = pHead
+        pNode = pHead   # 表示当前结点
         pReversedHead = None
         while(pNode is not None):
             pNext = pNode.next
@@ -42,21 +65,16 @@ class Solution:
         
 #         return pPre
 
+if __name__ == "__main__":
+    ## 测试用例
+    s = [1, 2, 3,  4, 5]
+    LL = LinkList()
+    head = LL.buildList(s)
+    print("链表为：", LL.printLinkList(head))
 
-## 测试用例
-s = {1, 2, 3,  4, 5}
-listNode = ListNode(list(s)[0])
-p = listNode
-i = 0
-for elem in s:
-    if i != 0:
-        p.next = ListNode(elem)
-        p = p.next
-    i = i + 1
-
-a = Solution()
-node = a.ReverseList(listNode)
-print(node, node.val)
+    a = Solution()
+    node = a.ReverseList(head)
+    print("翻转链表为：", LL.printLinkList(node))
 
 # a2 = Solution2()
 # node2 = a2.ReverseList(listNode)

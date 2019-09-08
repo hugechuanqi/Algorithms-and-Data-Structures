@@ -6,55 +6,25 @@ class TreeNode:
         self.right = None
 
 class Solution:
-    def reConstructBinaryTree(self, pre, tin):
-        if not pre or not tin:
-            return None
-        root = TreeNode(pre[0])
-        val = tin.index(pre[0])
-        # print(pre[0])
-
-        root.left = self.reConstructBinaryTree(pre[1:val+1], tin[0:val])
-        root.right = self.reConstructBinaryTree(pre[val+1:], tin[val+1:])
-        return root
-
-    def PrintFromTopToBottom(self, root):
-        if root is None:
+    def FindPath(self, pRoot, expectNumber):
+        if not pRoot:
             return []
-        queue = []
-        result = []
+        path = []
+        currentSum = 0
+        return self.Find2(self, pRoot, expectNumber, path, currentSum)
+    def Find2(self, pRoot, expectNumber, path, currentSum):
+        currentSum += pRoot.val
+        path.append(pRoot.val)
+        isleaf = (pRoot==None and pRoot==None)
 
-        queue.append(root)
-        while(len(queue)>0):
-            node = queue.pop(0)
-            result.append(node.val)
-            if node.left:
-                queue.append(node.left)
-            if node.right:
-                queue.append(node.right)
-        return result
+        if isleaf and currentSum==expectNumber:
+            print(path)
 
-    def FindPath(self, root, expectNumber):
-        # write code here
-        if root==None:
-            return []
-        path=[]
-        if root.left==None and root.right==None and root.val==expectNumber:
-            # path.append([root.val])
-            return [[root.val]]
-        else:
-            leftPath = self.FindPath(root.left, expectNumber-root.val)
-            rightPath = self.FindPath(root.right, expectNumber-root.val)
-            for item in leftPath+rightPath:
-                print(leftPath, rightPath, [root.val]+item)
-                path.append([root.val]+item)
-        return path
+        if pRoot.left:
+            self.FInd2(pRoot.left, expectNumber, path, currentSum)
+        if pRoot.right:
+            self.Find2(pRoot.right, expectNumber, path, currentSum)
+        path.pop()  # 把不符合的当前项弹出
 
 if __name__ == "__main__":
-    pre = [1,2,3,4,5,6,7,8]
-    tin = [3,2,4,1,6,5,7,8]
-    a = Solution()
-    root = a.reConstructBinaryTree(pre, tin)
-    result = a.PrintFromTopToBottom(root)
-    print(result)
-    path = a.FindPath(root, 7)
-    print(path)
+    
