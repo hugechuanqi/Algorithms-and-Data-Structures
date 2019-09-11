@@ -29,7 +29,7 @@ class List:
             else:
                 p.next = ListNode(Arr[i])
                 p = p.next
-        p.next = q
+        p.next = q  # 建立环结构
         # print(q.val, p.val, head.val)
         return head
 
@@ -52,12 +52,12 @@ class Solution:
         """
         quick = head
         slow =  head
-        while(quick.next):
+        while(quick.next):      # 如果有环，那么quick.next一定不为空
             quick = quick.next.next     # 快指针走两步
             slow = slow.next                   # 慢指针走一步
             if quick == slow:
                 return True
-            if not quick:
+            if not quick:               # 防止当前结点为空，则quick.next不存在，会报错
                 return False
         return False
 
@@ -72,6 +72,7 @@ class Solution:
             return
         else:
             # print('存在环结构')
+            # 1、从头结点开始，找到相交的位置
             quick = head
             slow =  head
             while(quick.next):
@@ -80,12 +81,14 @@ class Solution:
                 if quick == slow:
                     break
 
+            # 2、从相交的位置开始，再次移动其中一个指针，当再次与另一个指针相交时，其移动次数环的长度
             slow = slow.next
             count = 1
             while(quick!=slow):
                 slow = slow.next
                 count += 1
 
+            # 3、建立双指针，指向头结点，让q先移动环长度的步数，然后一起后移，直到两个指针相交，则相交的位置就是环的起点
             p,q = head, head
             while(count>0):
                 q = q.next

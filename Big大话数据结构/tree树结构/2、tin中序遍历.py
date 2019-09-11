@@ -67,7 +67,7 @@ class BinaryTree(object):
         self.inOrder(pRoot.right)
 
     def inOrder2(self, pRoot):
-        """ 非递归实现二叉树的中序遍历——思想：DFS深度优先搜索
+        """ 非递归实现二叉树的中序遍历——思想：DFS深度优先搜索（如何使一个结点被访问过后不再被访问）
         """
         if not pRoot:
             return []

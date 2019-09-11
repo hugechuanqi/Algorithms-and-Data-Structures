@@ -1,27 +1,20 @@
 class Solution(object):
-    def coinChange(self, coins, amount):
+    def maxSubArray(self, Arr):
+        """ DP：最大子序和
         """
-        :type coins: List[int]
-        :type amount: int
-        :rtype: int
-        """
-        res = [0 for _ in range(amount + 1)]
-        
-        for i in range(1, amount + 1):
-            cost = float('inf')
-            for c in coins:
-                if i - c >= 0:
-                    cost = min(cost, res[i - c] + 1)
-            res[i] = cost
-        
-        if res[amount] == float('inf'):
-            return -1
-        else:
-            return res[amount]
+        tmp = Arr[0]
+        max_ = tmp
+        for i in range(1, len(Arr)):
+            if tmp+Arr[i]>Arr[i]:
+                max_ = max(max_, tmp+Arr[i])
+                tmp = tmp + Arr[i]
+            else:
+                max_ = max(max_, tmp, tmp+Arr[i], Arr[i])
+                tmp = Arr[i]
+        return max_
 
 if __name__ == "__main__":
-    coins = [1, 2, 5]   #硬币数量不受限
-    amout = 11
+    Arr = [-2,1,-3,4,-1,2,1,-5,4]
     a = Solution()
-    minNumber = a.coinChange(coins, amout)
-    print(minNumber)
+    maxSubSum = a.maxSubArray(Arr)
+    print(maxSubSum)

@@ -12,6 +12,8 @@
 
 class Solution(object):
     def lengthOfLIS(self, Arr):
+        """ 动态规划DP：DP一维数组中存储的是该数组长度为i的最大上升子序列（判断数值是否上升）
+        """
         length = len(Arr)
         if length==0:
             return

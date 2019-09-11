@@ -3,7 +3,7 @@ class Solution:
         """ 另一种排序方案
         """
         hp = Arr[high]  #首先以hp为枢轴
-        i = low - 1
+        i = low - 1     # 用于存放比枢轴小的数值
         for j in range(low,high):
             if Arr[j] < hp:     #把比枢轴小的放到左边，枢轴实际位置就在i+1
                 i = i+ 1

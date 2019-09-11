@@ -47,24 +47,6 @@ class Solution:
         
         return pReversedHead
 
-# ## 方法二
-# class Solution2:
-#     # 返回ListNode
-#     def ReverseList(self, pHead):
-#         # write code here
-#         if not pHead or not pHead.next:
-#             return pHead
-
-#         pPre = None
-#         pNode = pHead
-#         while(pNode is not None):
-#             pNext = pNode.next
-#             pNode.next = pPre
-#             pPre = pNode
-#             pNode = pNext
-        
-#         return pPre
-
 if __name__ == "__main__":
     ## 测试用例
     s = [1, 2, 3,  4, 5]

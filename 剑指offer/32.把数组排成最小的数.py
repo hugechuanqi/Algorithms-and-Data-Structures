@@ -20,8 +20,9 @@ class Solution:
         return '0' if largest_num[0] == '0' else largest_num
 
 if __name__ == "__main__":
-    N = int(input())
-    Arr = list(map(int, input().split()))
+    # N = int(input())
+    # Arr = list(map(int, input().split()))
+    Arr = [30, 1]
     a = Solution()
     res = a.largest(Arr)
     print(res)

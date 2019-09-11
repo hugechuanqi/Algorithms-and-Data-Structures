@@ -1,4 +1,4 @@
-## 题目：最大子序和（求数值和）
+## 题目：最大子序和（求最大连续子序和）
 ## 类型：动态规划，数组，分治算法
 
 ## 题目描述：给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
@@ -13,9 +13,7 @@
 class Solution:
     ## 动态规划
     def maxSubArray(self, array):
-        """
-        :types nums: List[int]
-        :rtype: int
+        """ 暴力求解法
         """
         maxSumList = [0]*len(array)
         for i in range(len(array)):
@@ -31,7 +29,7 @@ class Solution:
         return max(maxSumList)
 
     def maxSubArray(self, nums) -> int:
-        """ 暴力求解法
+        """ 动态规划法DP
         """
         tmp = nums[0]   # 假设最大子序和从第一个开始
         max_  = tmp
@@ -45,8 +43,9 @@ class Solution:
 
         return max_
 
-    ## 分治法
     def maxSubArray3(self, nums) -> int:
+        """ 分治法：将数组分为左右两部分和中间部分，递归实现。没能完全理解
+        """
         n = len(nums)
         if n==1:
             return nums[0]

@@ -23,16 +23,9 @@ class Solution:
         if (len(coins)==0 or amount<0):
             return
         return self.process(coins, 0, amount)
-    def process(self, Arr, index, amount):
-        if amount == 0:
-            return 0
-        if index<len(Arr) and amount>0:
-            maxVal = amount//coins[index]    # 每个硬币所对应的最大数量
-            minCost = float('inf')
-            for x in range(ma)
-
-
     def process(self, Arr, index, aim):
+        """ 递归实现：直到index比数组长度大，或达到目标
+        """
         res = 0
         if index==len(Arr):
             if aim==0:      # 钱正好够

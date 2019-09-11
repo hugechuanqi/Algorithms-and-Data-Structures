@@ -10,35 +10,53 @@ class ListNode:
         self.val = x
         self.next = None
 
+class LinkList:
+    def buildList(self, Arr):
+        """ 建立链表
+        """
+        head = ListNode(Arr[0])
+        p = head
+        for i in range(1, len(Arr)):
+            p.next = ListNode(Arr[i])
+            p = p.next
+        p.next = None
+        return head
+
+    def printLinkList(self, head):
+        """ 从头到尾打印链表
+        """
+        p = head
+        result = []
+        while(p):
+            result.append(p.val)
+            p = p.next
+        return result
+
 class Solution:
     def FindKthToTail(self, head, k):
         if not head or k<=0:
             return None
         q = head
         p = head
-        for i in range(k-1):
+        for i in range(k-1):    # 先走K-1步，不能走K步，因为q指向第一个结点，假设链表长度为K，走k步就为空了，但实际上第一个结点就为倒数第K个结点
             if q.next is not None:
                 q = q.next
             else:
-                return None
-        # print("p结点数据域：", p.val, "，q结点数据域：", q.val)
+                return None     # 如果整个链表的长度比K小，则输出为空
         while(q.next is not None):
             p = p.next
             q = q.next
         return p
 
-## 测试用例
-s = {1, 2, 3,  4, 5}
-listNode = ListNode(list(s)[0])
-p = listNode
-i = 0
-for elem in s:
-    if i != 0:
-        p.next = ListNode(elem)
-        p = p.next
-    i = i + 1
+if __name__ == "__main__":
+    ## 测试用例
+    s = [1, 2, 3,  4, 5]
+    LL = LinkList()
+    head = LL.buildList(s)
+    print("链表为：", LL.printLinkList(head))
 
-a = Solution()
-node = a.FindKthToTail(listNode, 2)
-print(node.val, node.next)
+    a = Solution()
+    k = 2
+    node = a.FindKthToTail(head, k)
+    print("倒数第",k,"个结点为：", node.val)
 
