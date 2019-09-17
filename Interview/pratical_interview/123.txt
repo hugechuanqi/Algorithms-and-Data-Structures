@@ -1,14 +1,42 @@
-def getNewArr(xs, k):
-    res = []
-    for low in range(0, len(xs)-k+1):
-        high = low+(k-1)
-        average = sum(xs[low:high+1])/k
-        average = round(average, 2)
-        res.append(str(average))
-    return res
+class Solution:
+    def minPathSum(self, matrix):
+        """ 动态规划：自顶向下，建立二维矩阵
+        """
+        rows, cols = len(matrix), len(matrix[0])
+        dp = [[0 for j in range(cols)] for i in range(rows)]
+        dp[0][0] = matrix[0][0]
+        for j in range(1, cols):
+            dp[0][j] = dp[0][j-1] + matrix[0][j]
+        for i in range(1, rows):
+            dp[i][0] = dp[i][0] + matrix[i][0]
+
+        for i in range(1, rows):
+            for j in range(1, cols):
+                dp[i][j] = min(dp[i-1][j], dp[i][j-1]) + matrix[i][j]   # 取向右走或向下走的最小值
+
+        return dp[rows-1][cols-1]
+
+    def minPathSum2(self, matrix):
+        """ 动态规划：自顶向下，建立一维矩阵——节省内存消耗
+        """
+        rows, cols = len(matrix), len(matrix[0])
+        dp = [0 for j in range(cols)]
+        dp[0] = matrix[0][0]
+        for  j in range(cols):
+            dp[j] = dp[j-1] + matrix[0][j]
+
+        for  i  in range(1, rows):
+            for j in range(cols):
+                dp[j] = min(dp[j-1], dp[j]) + matrix[i][j]
+        
+        return dp[cols-1]
 
 if __name__ == "__main__":
-    xs = list(map(int, input().split()))
-    k = int(input())
-    res = getNewArr(xs, k)
-    print(' '.join(res))
+    matrix = [
+    [1,3,1],
+    [1,5,1],
+    [4,2,1]
+]
+    a = Solution()
+    res = a.minPathSum(matrix)
+    print(res)
