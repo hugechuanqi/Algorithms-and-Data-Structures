@@ -1,3 +1,5 @@
+## 题目描述：求矩阵中的最短路径和
+
 class Solution: 
     def minPathSum(self, matrix):
         rows, cols = len(matrix), len(matrix[0])
@@ -22,3 +24,13 @@ if __name__ == "__main__":
     a = Solution()
     res = a.minPathSum(matrix)
     print(res)
+
+## 测试用例：
+# 输入：
+# 3
+# 3
+# 1 2 3
+# 4 5 6
+# 7 8 9
+# 输出：
+# 21
